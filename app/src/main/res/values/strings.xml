@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Calculator</string>
+
+    <string name="LB_8">8</string>
+    <string name="LB_9">9</string>
+    <string name="LB_0">0</string>
+    <string name="LB_5">5</string>
+    <string name="LB_4">4</string>
+    <string name="LB_6">6</string>
+    <string name="LB_1">1</string>
+    <string name="LB_2">2</string>
+    <string name="LB_3">3</string>
+    <string name="LB_7">7</string>
+
+    <string name="default_time">00:10</string>
+    <string name="right">Right</string>
+    <string name="wrong">wrong</string>
+    <string name="default_calculation">8 + 1 =</string>
+    <string name="default_answer">265</string>
+
+    <string name="valid">V</string>
+    <string name="erase">D</string>
+
+    <string name="minus">-</string>
+    <string name="plus">+</string>
+    <string name="multiplicate">*</string>
+    <string name="divide">÷</string>
+    <string name="all">- + * ÷</string>
+
+</resources>

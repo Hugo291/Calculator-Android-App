@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#F3F3F3"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Activities.MenuActivity">
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginTop="15pt"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+
+    <LinearLayout
+        android:layout_marginTop="10sp"
+        android:layout_marginStart="10sp"
+        android:layout_marginEnd="10sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btn_plus"
+            app:cardBackgroundColor="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:layout_weight="1"
+            app:cardCornerRadius="2sp"
+            app:cardUseCompatPadding="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:scrollbarAlwaysDrawHorizontalTrack="true">
+
+                <TextView
+                    android:textColor="@color/white"
+                    android:id="@+id/title_cell_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/plus"
+                    android:textSize="@dimen/text_size_symbole" />
+
+                <View
+                    android:id="@+id/bar_cell_menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:layout_marginStart="5sp"
+                    android:layout_marginEnd="5sp"
+                    android:background="@color/white" />
+
+                <TextView
+                    android:id="@+id/description_cell_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15sp"
+                    android:fontFamily="@font/roboto_light"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/white"
+                    android:maxWidth="120sp"
+                    android:text="Addition"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btn_multi"
+            app:cardBackgroundColor="@color/colorErase"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5sp"
+            android:layout_weight="1"
+            app:cardCornerRadius="2sp"
+            app:cardUseCompatPadding="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:scrollbarAlwaysDrawHorizontalTrack="true">
+
+                <TextView
+                    android:textColor="#fff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="x"
+                    android:textSize="@dimen/text_size_symbole" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:layout_marginStart="10sp"
+                    android:layout_marginEnd="10sp"
+                    android:background="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15sp"
+                    android:fontFamily="@font/roboto_light"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/white"
+                    android:maxWidth="120sp"
+                    android:text="Multiplication"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginStart="10sp"
+        android:layout_marginEnd="10sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btn_divide"
+            app:cardBackgroundColor="@color/colorInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:layout_weight="1"
+            app:cardCornerRadius="2sp"
+            app:cardUseCompatPadding="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:scrollbarAlwaysDrawHorizontalTrack="true">
+
+                <TextView
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/divide"
+                    android:textSize="@dimen/text_size_symbole" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:layout_marginStart="10sp"
+                    android:layout_marginEnd="10sp"
+                    android:background="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15sp"
+                    android:fontFamily="@font/roboto_light"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/white"
+                    android:maxWidth="120sp"
+                    android:text="Division"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btn_minus"
+            app:cardBackgroundColor="@color/colorValid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:layout_weight="1"
+            app:cardCornerRadius="2sp"
+            app:cardUseCompatPadding="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:scrollbarAlwaysDrawHorizontalTrack="true">
+
+                <TextView
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/minus"
+                    android:textSize="@dimen/text_size_symbole" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:layout_marginStart="10sp"
+                    android:layout_marginEnd="10sp"
+                    android:background="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15sp"
+                    android:fontFamily="@font/roboto_light"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/white"
+                    android:maxWidth="120sp"
+                    android:text="Soustraction"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10sp"
+        android:layout_marginEnd="10sp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginStart="10sp"
+            android:layout_marginEnd="10sp"
+            android:id="@+id/btn_all"
+            app:cardBackgroundColor="@color/colorWarning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            app:cardCornerRadius="2sp"
+            app:cardUseCompatPadding="false">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:scrollbarAlwaysDrawHorizontalTrack="true">
+
+                <TextView
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/all"
+                    android:textSize="@dimen/text_size_symbole" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:layout_marginStart="10sp"
+                    android:layout_marginEnd="10sp"
+                    android:background="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15sp"
+                    android:fontFamily="@font/roboto_light"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/white"
+                    android:maxWidth="120sp"
+                    android:text="Aléatoire"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+<!--        <com.google.android.gms.ads.AdView-->
+<!--            android:layout_weight="1"-->
+<!--            xmlns:ads="http://schemas.android.com/apk/res-auto"-->
+<!--            android:id="@+id/adView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            ads:adSize="BANNER"-->
+<!--            ads:adUnitId="ca-app-pub-9096547068264021/1934322251">-->
+<!--        </com.google.android.gms.ads.AdView>-->
+    </LinearLayout>
+
+</LinearLayout>
