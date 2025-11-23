@@ -15,7 +15,7 @@
     <string name="default_time">00:10</string>
     <string name="right">Right</string>
     <string name="wrong">wrong</string>
-    <string name="default_calculation">8 + 1 =</string>
+    <string name="default_calculation">18 × 4 = ?</string>
     <string name="default_answer">265</string>
 
     <string name="valid">V</string>
@@ -23,8 +23,15 @@
 
     <string name="minus">-</string>
     <string name="plus">+</string>
-    <string name="multiplicate">*</string>
+    <string name="multiplicate">×</string>
     <string name="divide">÷</string>
     <string name="all">- + * ÷</string>
+    <string name="math_title">DigitClash</string>
+    <string name="multiplication">x</string>
+    <string name="aleatoire">ALEATOIRE</string>
+    <string name="level_format">— Niveau %1$d/%2$d —</string>
 
+    <string name="challenge">Challenge</string>
+    <string name="timer">Timer</string>
+    <string name="progress">Progress</string>
 </resources>

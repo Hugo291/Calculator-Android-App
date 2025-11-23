@@ -21,6 +21,24 @@
     <color name="black">#000000</color>
 
 
+    <color name="button_yellow_light">#fce38a</color>
+    <color name="button_blue_light">#86d5f4</color>
+    <color name="button_orange_light">#f79883</color>
+    <color name="button_purple">#d59eea</color>
+    <color name="button_green_mint">#4fcaa3</color>
+    <color name="button_red_coral">#ee6967</color>
+    <color name="button_blue_medium">#5fa6d3</color>
+    <color name="text_dark_blue">#2a2c36</color>
+    <color name="button_yellow_strong">#f0c13c</color>
+
+    <color name="game_button_text_color">@color/white</color>
+    <color name="main_background">#F3F3F3</color>
+
+    <color name="dialog_background">#FEFBF0</color>
+    <color name="dialog_green">#76C870</color>
+    <color name="dialog_dark_text">#3A4043</color>
+    <color name="dialog_dark_gray_button">#494D53</color>
+
 </resources>
 
 
