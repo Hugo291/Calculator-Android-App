@@ -34,4 +34,9 @@
     <string name="challenge">Challenge</string>
     <string name="timer">Timer</string>
     <string name="progress">Progress</string>
+    <string name="digit_1_default">18</string>
+    <string name="digit_2_default">4</string>
+    <string name="equal_symbol">=</string>
+    <string name="result_default">1</string>
+    <string name="pause_button_content_description">Pause button</string>
 </resources>
