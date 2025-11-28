@@ -1,8 +1,11 @@
 package com.pixelma.calculator.Activities;
 
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.FrameLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -11,9 +14,15 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
+import com.google.android.material.card.MaterialCardView;
 import com.pixelma.calculator.R;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private int shadowOffset;
+    private int shadowOffsetPressed;
+    private int pressDuration;
+    private int releaseDuration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +42,59 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
             windowInsetsController.setAppearanceLightStatusBars(true);
         }
 
+        initResource();
+
         //TODO add google sign
 
-        findViewById(R.id.btn_plus).setOnClickListener(this);
-        findViewById(R.id.btn_divide).setOnClickListener(this);
-        findViewById(R.id.btn_minus).setOnClickListener(this);
-        findViewById(R.id.btn_multi).setOnClickListener(this);
+        setButtonTouchListener(R.id.btn_plus, () -> startGame(0));
+        setButtonTouchListener(R.id.btn_divide, () -> startGame(3));
+        setButtonTouchListener(R.id.btn_minus, () -> startGame(1));
+        setButtonTouchListener(R.id.btn_multi, () -> startGame(2));
+        setButtonTouchListener(R.id.btn_challenge, () -> {});
+        setButtonTouchListener(R.id.btn_timer, () -> {});
+        setButtonTouchListener(R.id.btn_progress, () -> {});
+    }
 
+    public void initResource() {
+        shadowOffset = (int) getResources().getDimension(R.dimen.game_button_shadow_offset);
+        shadowOffsetPressed = (int) getResources().getDimension(R.dimen.game_button_shadow_offset_pressed);
+        pressDuration = getResources().getInteger(R.integer.game_button_press_duration);
+        releaseDuration = getResources().getInteger(R.integer.game_button_release_duration);
+    }
+
+    private void animateButton(View view, int from, int to, int duration) {
+        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) view.getLayoutParams();
+        ValueAnimator animator = ValueAnimator.ofInt(from, to);
+        animator.setDuration(duration);
+
+        animator.addUpdateListener(animation -> {
+            int value = (int) animation.getAnimatedValue();
+            params.setMarginStart(shadowOffset - value);
+            params.topMargin = shadowOffset - value;
+            params.setMarginEnd(value);
+            params.bottomMargin = value;
+            view.setLayoutParams(params);
+        });
+        animator.start();
+    }
+
+    private void setButtonTouchListener(int buttonId, Runnable action) {
+        MaterialCardView button = findViewById(buttonId);
+        button.setOnTouchListener((view, motionEvent) -> {
+            switch (motionEvent.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    animateButton(view, shadowOffset, shadowOffsetPressed, pressDuration);
+                    return true;
+                case MotionEvent.ACTION_UP:
+                case MotionEvent.ACTION_CANCEL:
+                    animateButton(view, shadowOffsetPressed, shadowOffset, releaseDuration);
+                    if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                        action.run();
+                    }
+                    return true;
+            }
+            return false;
+        });
     }
 
     private void startGame(int operator) {

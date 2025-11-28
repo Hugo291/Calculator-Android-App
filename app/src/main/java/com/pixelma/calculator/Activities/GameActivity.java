@@ -6,11 +6,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,39 +18,29 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
 import com.google.android.material.card.MaterialCardView;
-import com.pixelma.calculator.Interfaces.TimerActions;
 import com.pixelma.calculator.Models.Calculation;
-import com.pixelma.calculator.Models.Timer;
 import com.pixelma.calculator.R;
 
 public class GameActivity extends AppCompatActivity {
 
     private Calculation calculation;
-    private Timer timer;
 
     public final static String OPERATOR = "OPERATOR";
 
     private int currentRound = 0;
 
-    private TextView tvCalculationPart1;
-    private TextView tvCalculationOperator;
-    private TextView tvCalculationPart2;
-    private TextView tvCalculationEquals;
-    private TextView tvCalculationQuestion;
-    private TextView tvRightAnswer;
-    private TextView tvWrongAnswer;
-    private TextView tvTimer;
-    private TextView tvLevel;
-
-    private ImageView ivRightAnswer;
-    private ImageView ivWrongAnswer;
+    private TextView tvDigit1;
+    private TextView tvOperator;
+    private TextView tvDigit2;
+    private TextView tvResult;
+    private FrameLayout btnPause;
 
     private int shadowOffset;
     private int shadowOffsetPressed;
     private int pressDuration;
     private int releaseDuration;
 
-    public final String TAG = "TAG_GameActivity";
+//    public final String TAG = "TAG_GameActivity";
 
     private int gameOperator;
 
@@ -79,22 +66,6 @@ public class GameActivity extends AppCompatActivity {
         initResource();
 
         onStartGame();
-
-        new Thread(timer = new Timer(new TimerActions() {
-            @Override
-            public void eachSecondTimer(final String currentTime) {
-                runOnUiThread(() -> {
-                    tvTimer.setText(currentTime);
-                    Animation aniSlide = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_in);
-                    tvTimer.startAnimation(aniSlide);
-                });
-            }
-
-            @Override
-            public void finish() {
-            }
-        })).start();
-
     }
 
     public void getParamsAct() {
@@ -105,36 +76,22 @@ public class GameActivity extends AppCompatActivity {
 
     public void onStartGame() {
         currentRound = 0;
-        tvRightAnswer.setText("0");
-        tvWrongAnswer.setText("0");
-        updateLevelText();
         calculation = new Calculation(currentRound, this.gameOperator);
         setCalculation(calculation);
     }
 
     public void onRightAnswer() {
-        addRightAnswer();
         if (currentRound == 2) { // Changed from 14 to 2
             showVictoryDialog();
             return;
         }
         nextRound();
-        updateLevelText();
         calculation = new Calculation(currentRound, this.gameOperator);
         setCalculation(calculation);
-
-        if (timer != null) {
-            timer.restart();
-        }
-
-        Animation aniSlide = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_in);
-        tvRightAnswer.startAnimation(aniSlide);
     }
 
     public void onWrongAnswer() {
-        addWrongAnswer();
-        Animation aniSlide = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_in);
-        tvWrongAnswer.startAnimation(aniSlide);
+         AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_in);
     }
 
     private void showVictoryDialog() {
@@ -143,11 +100,10 @@ public class GameActivity extends AppCompatActivity {
         View dialogView = inflater.inflate(R.layout.dialog_victory, null);
         builder.setView(dialogView);
 
-        TextView victoryScore = dialogView.findViewById(R.id.victory_score);
-        victoryScore.setText(String.format("%03d", Integer.parseInt(tvRightAnswer.getText().toString())));
+//        TextView victoryScore = dialogView.findViewById(R.id.victory_score);
 
-        Button btnNext = dialogView.findViewById(R.id.btn_next);
-        Button btnHome = dialogView.findViewById(R.id.btn_home);
+        FrameLayout btnNext = dialogView.findViewById(R.id.btn_next);
+        FrameLayout btnHome = dialogView.findViewById(R.id.btn_home);
 
         final AlertDialog dialog = builder.create();
 
@@ -164,17 +120,38 @@ public class GameActivity extends AppCompatActivity {
         dialog.setCancelable(false);
         dialog.show();
     }
+    
+    private void showPauseDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialog_pause, null);
+        builder.setView(dialogView);
 
-    private void updateLevelText() {
-        tvLevel.setText("Niv " + (currentRound + 1) + "/3");
+        FrameLayout btnResume = dialogView.findViewById(R.id.btn_resume);
+        FrameLayout btnQuit = dialogView.findViewById(R.id.btn_quit);
+
+        final AlertDialog dialog = builder.create();
+
+        btnResume.setOnClickListener(v -> {
+            // Resume timer and game
+            dialog.dismiss();
+        });
+
+        btnQuit.setOnClickListener(v -> {
+            finish();
+            dialog.dismiss();
+        });
+
+        dialog.setCancelable(false);
+        dialog.show();
     }
 
     public void setUserResult(String str) {
-        tvCalculationQuestion.setText(str);
+        tvResult.setText(str);
     }
 
     public void removeCharUserResult() {
-        String currentText = tvCalculationQuestion.getText().toString();
+        String currentText = tvResult.getText().toString();
         if (currentText.equals("?")) {
             return;
         }
@@ -186,39 +163,28 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    public void addRightAnswer() {
-        int currentScore = Integer.parseInt(tvRightAnswer.getText().toString());
-        tvRightAnswer.setText(String.valueOf(currentScore + 1));
-    }
-
-    public void addWrongAnswer() {
-        int currentScore = Integer.parseInt(tvWrongAnswer.getText().toString());
-        tvWrongAnswer.setText(String.valueOf(currentScore + 1));
-    }
-
     public void appendCharUserResult(String str) {
-        String currentText = tvCalculationQuestion.getText().toString();
+        String currentText = tvResult.getText().toString();
         if (currentText.equals("?")) {
-            tvCalculationQuestion.setText(str);
+            tvResult.setText(str);
         } else if (currentText.length() < 3) {
-            tvCalculationQuestion.append(str);
+            tvResult.append(str);
         }
     }
 
     public void setCalculation(Calculation calculation) {
         String[] parts = calculation.getCalculationString().split(" ");
         if (parts.length >= 3) {
-            tvCalculationPart1.setText(parts[0]);
-            tvCalculationOperator.setText(parts[1]);
-            tvCalculationPart2.setText(parts[2]);
-            tvCalculationEquals.setText("=");
-            tvCalculationQuestion.setText("?");
+            tvDigit1.setText(parts[0]);
+            tvOperator.setText(parts[1]);
+            tvDigit2.setText(parts[2]);
+            tvResult.setText("?");
         }
     }
 
     public int getUserResultValue() {
         try {
-            String resultText = tvCalculationQuestion.getText().toString();
+            String resultText = tvResult.getText().toString();
             if (resultText.equals("?")) {
                 return -1; // Use a value unlikely to be a correct answer
             }
@@ -229,7 +195,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public String removeLastChar(String str) {
-        if (str == null || str.length() == 0) {
+        if (str == null || str.isEmpty()) {
             return "";
         }
         return str.substring(0, str.length() - 1);
@@ -276,16 +242,15 @@ public class GameActivity extends AppCompatActivity {
         pressDuration = getResources().getInteger(R.integer.game_button_press_duration);
         releaseDuration = getResources().getInteger(R.integer.game_button_release_duration);
 
-        tvCalculationPart1 = findViewById(R.id.calculation_part_1);
-        tvCalculationOperator = findViewById(R.id.calculation_operator);
-        tvCalculationPart2 = findViewById(R.id.calculation_part_2);
-        tvCalculationEquals = findViewById(R.id.calculation_equals);
-        tvCalculationQuestion = findViewById(R.id.calculation_question);
-
-        tvRightAnswer = findViewById(R.id.right_answer);
-        tvWrongAnswer = findViewById(R.id.wrong_answer);
-        tvTimer = findViewById(R.id.timer);
-        tvLevel = findViewById(R.id.level);
+        tvDigit1 = findViewById(R.id.tv_digit_1);
+        tvOperator = findViewById(R.id.tv_operator);
+        tvDigit2 = findViewById(R.id.tv_digit_2);
+        tvResult = findViewById(R.id.tv_result);
+        btnPause = findViewById(R.id.btn_pause);
+        
+        btnPause.setOnClickListener(v -> {
+            showPauseDialog();
+        });
 
         // Set listeners for number buttons
         setButtonTouchListener(R.id.btn_1, () -> appendCharUserResult("1"));

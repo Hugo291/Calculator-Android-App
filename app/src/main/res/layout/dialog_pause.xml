@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical"
-    android:background="@android:color/transparent">
+    android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="300dp"
@@ -40,23 +39,12 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="@font/fredoka_semibold"
-                    android:text="VICTORY"
+                    android:text="PAUSED"
                     android:textColor="@color/white"
                     android:textSize="32sp" />
 
-                <TextView
-                    android:id="@+id/victory_score"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/fredoka_semibold"
-                    android:text="38"
-                    android:textColor="@color/white"
-                    android:textSize="80sp" />
-
                 <FrameLayout
-                    android:id="@+id/btn_next"
+                    android:id="@+id/btn_resume"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginTop="16dp">
@@ -82,7 +70,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:fontFamily="@font/fredoka_semibold"
-                            android:text="NEXT"
+                            android:text="RESUME"
                             android:textColor="@color/white"
                             android:textSize="24sp" />
 
@@ -90,7 +78,7 @@
                 </FrameLayout>
 
                 <FrameLayout
-                    android:id="@+id/btn_home"
+                    android:id="@+id/btn_quit"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginTop="8dp">
@@ -116,7 +104,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:fontFamily="@font/fredoka_semibold"
-                            android:text="HOME"
+                            android:text="QUIT"
                             android:textColor="@color/white"
                             android:textSize="24sp" />
 
