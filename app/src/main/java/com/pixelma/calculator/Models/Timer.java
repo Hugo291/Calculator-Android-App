@@ -44,7 +44,7 @@ public class Timer {
                     handler.postDelayed(this, 1000);
                 } else {
                     isRunning = false;
-                    timerActions.finish();
+                    timerActions.onTimerFinish();
                 }
             }
         };
