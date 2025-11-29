@@ -1,72 +1,114 @@
 package com.pixelma.calculator.Models;
 
-
 import android.annotation.SuppressLint;
+import android.os.Handler;
+import android.os.Looper;
 
 import com.pixelma.calculator.Interfaces.TimerActions;
 
-public class Timer implements Runnable {
+/**
+ * Timer using Handler instead of manual Thread management
+ * Safer and more efficient
+ */
+public class Timer {
 
-    private boolean isRunning = true;
-    private TimerActions timerActions;
-    private final int  startSecond = 10;
-
-    private int current;
-
+    private final Handler handler;
+    private final TimerActions timerActions;
+    private final int startSecond = 10;
+    private int currentSeconds;
+    private boolean isRunning = false;
+    private Runnable timerRunnable;
 
     public Timer(TimerActions timerActions) {
-        this.current = startSecond;
-        this.setListenerTimerActions(timerActions);
+        this.handler = new Handler(Looper.getMainLooper());
+        this.timerActions = timerActions;
+        this.currentSeconds = startSecond;
     }
 
+    /**
+     * Start the timer countdown
+     */
+    public void start() {
+        if (isRunning) return;
+
+        isRunning = true;
+        timerRunnable = new Runnable() {
+            @Override
+            public void run() {
+                if (!isRunning) return;
+
+                currentSeconds--;
+                timerActions.eachSecondTimer(timeFormat(currentSeconds));
+
+                if (currentSeconds > 0) {
+                    handler.postDelayed(this, 1000);
+                } else {
+                    isRunning = false;
+                    timerActions.finish();
+                }
+            }
+        };
+
+        handler.post(timerRunnable);
+    }
+
+    /**
+     * Pause the timer
+     */
+    public void pause() {
+        isRunning = false;
+        if (timerRunnable != null) {
+            handler.removeCallbacks(timerRunnable);
+        }
+    }
+
+    /**
+     * Resume the timer
+     */
+    public void resume() {
+        if (!isRunning && currentSeconds > 0) {
+            start();
+        }
+    }
+
+    /**
+     * Stop and reset the timer
+     */
+    public void stop() {
+        isRunning = false;
+        if (timerRunnable != null) {
+            handler.removeCallbacks(timerRunnable);
+        }
+        currentSeconds = startSecond;
+    }
+
+    /**
+     * Add time to current countdown
+     */
+    public void restart() {
+        currentSeconds += startSecond;
+    }
+
+    /**
+     * Format time as MM:SS
+     */
     @SuppressLint("DefaultLocale")
     private String timeFormat(int currentTime) {
-        int minutes = (currentTime / 60);
+        int minutes = currentTime / 60;
         int seconds = currentTime % 60;
         return String.format("%02d:%02d", minutes, seconds);
-
     }
 
-    @Override
-    public void run() {
-
-        while (isRunning) {
-
-            current--;
-
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            timerActions.eachSecondTimer(timeFormat(current));
-
-            if(current <= 0){
-                timerActions.finish();
-                isRunning = false;
-            }
-        }
-
-    }
-
-
-    private void setListenerTimerActions(TimerActions timerActions) {
-        this.timerActions = timerActions;
-    }
-
-
-    public void restart() {
-        current += startSecond;
-    }
-
+    // Getters
     public int getTimeSecond() {
-        return current;
+        return currentSeconds;
     }
 
     public String getInitValue() {
-        return this.timeFormat(this.startSecond);
+        return timeFormat(startSecond);
     }
 
+    public boolean isRunning() {
+        return isRunning;
+    }
 }
-
