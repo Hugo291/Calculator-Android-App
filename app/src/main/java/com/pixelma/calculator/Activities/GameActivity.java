@@ -1,6 +1,10 @@
 package com.pixelma.calculator.Activities;
 
+import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -9,16 +13,17 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
+
 import com.google.android.material.card.MaterialCardView;
 import com.pixelma.calculator.Dialogs.GameOverDialog;
 import com.pixelma.calculator.Dialogs.PauseDialog;
 import com.pixelma.calculator.Dialogs.VictoryDialog;
 import com.pixelma.calculator.Interfaces.GameOverDialogListener;
 import com.pixelma.calculator.Interfaces.PauseDialogListener;
+import com.pixelma.calculator.Interfaces.TimerActions;
 import com.pixelma.calculator.Interfaces.VictoryDialogListener;
 import com.pixelma.calculator.Models.Calculation;
 import com.pixelma.calculator.Models.Timer;
-import com.pixelma.calculator.Interfaces.TimerActions;
 import com.pixelma.calculator.R;
 import com.pixelma.calculator.Utils.ButtonAnimationHelper;
 import com.pixelma.calculator.Utils.GameConfig;
@@ -30,6 +35,7 @@ public class GameActivity extends AppCompatActivity implements TimerActions, Pau
     private ButtonAnimationHelper animationHelper;
     private Calculation calculation;
     private Timer timer;
+    private Vibrator vibrator;
 
     private int currentRound = 0;
     private int rightAnswers = 0;
@@ -51,6 +57,7 @@ public class GameActivity extends AppCompatActivity implements TimerActions, Pau
         initViews();
         setupButtons();
         startGame();
+        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
     }
 
     private void setupWindowInsets() {
@@ -179,6 +186,18 @@ public class GameActivity extends AppCompatActivity implements TimerActions, Pau
     private void onWrongAnswer() {
         wrongAnswers++;
         updateScoreDisplay();
+        vibrateOnError();
+    }
+
+    private void vibrateOnError() {
+        if (vibrator != null && vibrator.hasVibrator()) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                vibrator.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE));
+            } else {
+                //deprecated in API 26
+                vibrator.vibrate(200);
+            }
+        }
     }
 
     private void updateScoreDisplay() {

@@ -293,10 +293,10 @@ Log.d("Game", "Round " + currentRound + " - Score: " + rightAnswers + "/" + wron
 
 ### Fonctionnalités à venir
 
-- [ ] Système de high scores avec SharedPreferences
+- [ ] Système de high scores
 - [ ] Mode multijoueur local
 - [ ] Sons et effets sonores
-- [ ] Vibrations haptiques
+- [x] Vibrations haptiques
 - [ ] Thème sombre
 - [ ] Statistiques détaillées
 - [ ] Système d'achievements
