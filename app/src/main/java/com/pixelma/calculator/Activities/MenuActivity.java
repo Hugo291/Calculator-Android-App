@@ -18,7 +18,7 @@ import com.google.android.material.card.MaterialCardView;
 import com.pixelma.calculator.R;
 import com.pixelma.calculator.Utils.GameConfig;
 
-public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
+public class MenuActivity extends AppCompatActivity {
 
     private int shadowOffset;
     private int shadowOffsetPressed;
@@ -47,13 +47,22 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
         //TODO add google sign
 
+        // Starts a game with the addition operator
         setButtonTouchListener(R.id.btn_plus, () -> startGame(GameConfig.Operators.PLUS));
+        // Starts a game with the division operator
         setButtonTouchListener(R.id.btn_divide, () -> startGame(GameConfig.Operators.DIVIDE));
+        // Starts a game with the subtraction operator
         setButtonTouchListener(R.id.btn_minus, () -> startGame(GameConfig.Operators.MINUS));
+        // Starts a game with the multiplication operator
         setButtonTouchListener(R.id.btn_multi, () -> startGame(GameConfig.Operators.MULTIPLY));
+        // Starts a game with a random operator
         setButtonTouchListener(R.id.btn_random, () -> startGame(GameConfig.Operators.RANDOM));
+
+        // ? No action defined
         setButtonTouchListener(R.id.btn_challenge, () -> {});
+        // ? No action defined
         setButtonTouchListener(R.id.btn_timer, () -> {});
+        // ? No action defined
         setButtonTouchListener(R.id.btn_progress, () -> {});
     }
 
@@ -103,21 +112,5 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent = new Intent(this, GameActivity.class);
         intent.putExtra(GameActivity.OPERATOR, operator);
         startActivity(intent);
-    }
-
-    @Override
-    public void onClick(View v) {
-        int id = v.getId();
-        if (id == R.id.btn_plus) {
-            startGame(GameConfig.Operators.PLUS);
-        } else if (id == R.id.btn_minus) {
-            startGame(GameConfig.Operators.MINUS);
-        } else if (id == R.id.btn_multi) {
-            startGame(GameConfig.Operators.MULTIPLY);
-        } else if (id == R.id.btn_divide) {
-            startGame(GameConfig.Operators.DIVIDE);
-        } else if (id == R.id.btn_random) {
-            startGame(GameConfig.Operators.RANDOM);
-        }
     }
 }

@@ -38,6 +38,17 @@
 3. **Entrez votre réponse** : Utilisez le clavier numérique pour saisir le résultat
 4. **Validez** : Appuyez sur le bouton vert pour soumettre votre réponse
 
+### Description des boutons
+
+- **Addition (`btn_plus`)**: Lance un jeu avec l'opérateur d'addition.
+- **Soustraction (`btn_minus`)**: Lance un jeu avec l'opérateur de soustraction.
+- **Multiplication (`btn_multi`)**: Lance un jeu avec l'opérateur de multiplication.
+- **Division (`btn_divide`)**: Lance un jeu avec l'opérateur de division.
+- **Aléatoire (`btn_random`)**: Lance un jeu avec un opérateur aléatoire.
+- **Défi (`btn_challenge`)**: ? (Fonctionnalité non implémentée)
+- **Minuteur (`btn_timer`)**: ? (Fonctionnalité non implémentée)
+- **Progrès (`btn_progress`)**: ? (Fonctionnalité non implémentée)
+
 ### Système de points
 
 - ✅ **Bonne réponse** : +1 point, chronomètre rechargé, nouvelle équation
