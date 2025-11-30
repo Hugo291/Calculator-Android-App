@@ -16,6 +16,7 @@ import androidx.core.view.WindowInsetsControllerCompat;
 
 import com.google.android.material.card.MaterialCardView;
 import com.pixelma.calculator.R;
+import com.pixelma.calculator.Utils.GameConfig;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -46,10 +47,11 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
         //TODO add google sign
 
-        setButtonTouchListener(R.id.btn_plus, () -> startGame(0));
-        setButtonTouchListener(R.id.btn_divide, () -> startGame(3));
-        setButtonTouchListener(R.id.btn_minus, () -> startGame(1));
-        setButtonTouchListener(R.id.btn_multi, () -> startGame(2));
+        setButtonTouchListener(R.id.btn_plus, () -> startGame(GameConfig.Operators.PLUS));
+        setButtonTouchListener(R.id.btn_divide, () -> startGame(GameConfig.Operators.DIVIDE));
+        setButtonTouchListener(R.id.btn_minus, () -> startGame(GameConfig.Operators.MINUS));
+        setButtonTouchListener(R.id.btn_multi, () -> startGame(GameConfig.Operators.MULTIPLY));
+        setButtonTouchListener(R.id.btn_random, () -> startGame(GameConfig.Operators.RANDOM));
         setButtonTouchListener(R.id.btn_challenge, () -> {});
         setButtonTouchListener(R.id.btn_timer, () -> {});
         setButtonTouchListener(R.id.btn_progress, () -> {});
@@ -107,13 +109,15 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.btn_plus) {
-            startGame(0);
+            startGame(GameConfig.Operators.PLUS);
         } else if (id == R.id.btn_minus) {
-            startGame(1);
+            startGame(GameConfig.Operators.MINUS);
         } else if (id == R.id.btn_multi) {
-            startGame(2);
+            startGame(GameConfig.Operators.MULTIPLY);
         } else if (id == R.id.btn_divide) {
-            startGame(3);
+            startGame(GameConfig.Operators.DIVIDE);
+        } else if (id == R.id.btn_random) {
+            startGame(GameConfig.Operators.RANDOM);
         }
     }
 }

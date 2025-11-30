@@ -63,7 +63,7 @@ public class GameActivity extends AppCompatActivity implements TimerActions, Pau
 
     private void getIntentParams() {
         if (getIntent() != null) {
-            gameOperator = getIntent().getIntExtra(OPERATOR, 0);
+            gameOperator = getIntent().getIntExtra(OPERATOR, GameConfig.Operators.PLUS);
         }
     }
 

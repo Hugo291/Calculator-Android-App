@@ -1,19 +1,16 @@
 package com.pixelma.calculator.Models;
 
+import com.pixelma.calculator.Utils.GameConfig;
+
 import java.util.Random;
 
 public class Calculation {
-
-    public static final String PLUS = "+";
-    public static final String MINUS = "-";
-    public static final String MULTIPLICATION = "*";
-    public static final String DIVIDE = "÷";
 
     private static final int MAX_GENERATION_ATTEMPTS = 100;
     private static final int[] LEVEL_THRESHOLDS = {10, 20, 35, 60, 80, 100};
 
     private final int gameOperator;
-    private final String[] operations = {PLUS, MINUS, MULTIPLICATION, DIVIDE};
+    private final String[] operations = {"+", "-", "*", "÷"};
     private final Random random = new Random();
 
     private int val1;
@@ -37,37 +34,37 @@ public class Calculation {
     private void configureLevelParameters(int level) {
         if (level < LEVEL_THRESHOLDS[0]) {
             maxValue = 15;
-            setMaxOperator(3);
+            setMaxOperator(GameConfig.Operators.DIVIDE);
             testLevel = 0;
         } else if (level < LEVEL_THRESHOLDS[1]) {
             maxValue = 50;
             minValue = 26;
-            setMaxOperator(2);
+            setMaxOperator(GameConfig.Operators.MULTIPLY);
             testLevel = 1;
         } else if (level < LEVEL_THRESHOLDS[2]) {
             maxValue = 100;
             minValue = 40;
-            setMaxOperator(3);
+            setMaxOperator(GameConfig.Operators.DIVIDE);
             testLevel = 2;
         } else if (level < LEVEL_THRESHOLDS[3]) {
             maxValue = 120;
             minValue = 20;
-            setMaxOperator(3);
+            setMaxOperator(GameConfig.Operators.DIVIDE);
             testLevel = 3;
         } else if (level < LEVEL_THRESHOLDS[4]) {
             maxValue = 150;
             minValue = 20;
-            setMaxOperator(3);
+            setMaxOperator(GameConfig.Operators.DIVIDE);
             testLevel = 4;
         } else if (level < LEVEL_THRESHOLDS[5]) {
             maxValue = 200;
             minValue = 20;
-            setMaxOperator(3);
+            setMaxOperator(GameConfig.Operators.DIVIDE);
             testLevel = 5;
         } else {
             maxValue = 300;
             minValue = 20;
-            setMaxOperator(3);
+            setMaxOperator(GameConfig.Operators.DIVIDE);
             testLevel = 7;
         }
     }
@@ -77,7 +74,13 @@ public class Calculation {
      * Tries MAX_GENERATION_ATTEMPTS times before using fallback
      */
     private void generateValidCalculation() {
-        operator = (gameOperator >= 0) ? gameOperator : random.nextInt(maxOperator + 1);
+        if (gameOperator == GameConfig.Operators.RANDOM) {
+            operator = random.nextInt(maxOperator + 1);
+        } else if (gameOperator == GameConfig.Operators.ALL) {
+            operator = random.nextInt(GameConfig.Operators.RANDOM); // ALL uses all 4 operators
+        } else {
+            operator = gameOperator;
+        }
 
         int attempts = 0;
         boolean isValid = false;
@@ -101,14 +104,14 @@ public class Calculation {
      * Calculate result based on operator
      */
     private int calculateResult() {
-        switch (operations[operator]) {
-            case PLUS:
+        switch (operator) {
+            case GameConfig.Operators.PLUS:
                 return val1 + val2;
-            case MINUS:
+            case GameConfig.Operators.MINUS:
                 return val1 - val2;
-            case MULTIPLICATION:
+            case GameConfig.Operators.MULTIPLY:
                 return val1 * val2;
-            case DIVIDE:
+            case GameConfig.Operators.DIVIDE:
                 return (val2 != 0) ? val1 / val2 : -1;
             default:
                 return -1;
@@ -126,7 +129,7 @@ public class Calculation {
         if (result > getMaxResult()) return false;
 
         // For division, check that it's exact
-        if (operations[operator].equals(DIVIDE)) {
+        if (operator == GameConfig.Operators.DIVIDE) {
             if (val2 == 0) return false;
             if (val1 % val2 != 0) return false;
             if (val1 == val2) return false;
@@ -140,20 +143,20 @@ public class Calculation {
      * Generate a safe fallback calculation
      */
     private void generateFallbackCalculation() {
-        switch (operations[operator]) {
-            case PLUS:
+        switch (operator) {
+            case GameConfig.Operators.PLUS:
                 val1 = 5;
                 val2 = 3;
                 break;
-            case MINUS:
+            case GameConfig.Operators.MINUS:
                 val1 = 10;
                 val2 = 3;
                 break;
-            case MULTIPLICATION:
+            case GameConfig.Operators.MULTIPLY:
                 val1 = 5;
                 val2 = 2;
                 break;
-            case DIVIDE:
+            case GameConfig.Operators.DIVIDE:
                 val1 = 10;
                 val2 = 2;
                 break;
@@ -202,8 +205,6 @@ public class Calculation {
     }
 
     private void setMaxOperator(int operator) {
-        if (gameOperator == -1) {
-            this.maxOperator = operator;
-        }
+        this.maxOperator = operator;
     }
 }
