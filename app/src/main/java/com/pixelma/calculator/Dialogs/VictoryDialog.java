@@ -26,6 +26,10 @@ public class VictoryDialog extends AlertDialog {
         View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.dialog_victory, null);
         setView(dialogView);
 
+        if (getWindow() != null) {
+            getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        }
+
         TextView victoryScore = dialogView.findViewById(R.id.victory_score);
         victoryScore.setText(String.valueOf(score));
 

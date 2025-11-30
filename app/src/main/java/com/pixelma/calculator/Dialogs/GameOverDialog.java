@@ -26,6 +26,10 @@ public class GameOverDialog extends AlertDialog {
         View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.dialog_game_over, null);
         setView(dialogView);
 
+        if (getWindow() != null) {
+            getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        }
+
         TextView finalScore = dialogView.findViewById(R.id.final_score);
         finalScore.setText(String.valueOf(score));
 
