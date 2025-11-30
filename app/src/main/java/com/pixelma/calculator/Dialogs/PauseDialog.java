@@ -23,6 +23,10 @@ public class PauseDialog extends AlertDialog {
         View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.dialog_pause, null);
         setView(dialogView);
 
+        if (getWindow() != null) {
+            getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        }
+
         FrameLayout btnResume = dialogView.findViewById(R.id.btn_resume);
         FrameLayout btnQuit = dialogView.findViewById(R.id.btn_quit);
 
