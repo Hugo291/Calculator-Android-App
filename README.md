@@ -294,6 +294,7 @@ Log.d("Game", "Round " + currentRound + " - Score: " + rightAnswers + "/" + wron
 ### Fonctionnalités à venir
 
 - [ ] Système de high scores
+- [ ] Connexion avec Google Play Jeux
 - [ ] Mode multijoueur local
 - [ ] Sons et effets sonores
 - [x] Vibrations haptiques
@@ -341,7 +342,8 @@ Les contributions sont les bienvenues ! N'hésitez pas à :
 ## 📞 Support
 
 - 📧 Email : support@digitclash.app
-- 🐛 Issues : [GitHub Issues](https://github.com/votre-username/digitclash/issues)
+- 🐛
+  Issues : [https://github.com/votre-username/digitclash/issues](https://github.com/votre-username/digitclash/issues)
 
 ---
 
