@@ -112,10 +112,13 @@ public class GameActivity extends AppCompatActivity implements TimerActions, Pau
     private void setupButtons() {
         animationHelper = new ButtonAnimationHelper(this);
         // Number buttons
-        for (int i = 0; i <= 9; i++) {
-            int buttonId = getResources().getIdentifier("btn_" + i, "id", getPackageName());
+        int[] numberButtonIds = {
+                R.id.btn_0, R.id.btn_1, R.id.btn_2, R.id.btn_3, R.id.btn_4,
+                R.id.btn_5, R.id.btn_6, R.id.btn_7, R.id.btn_8, R.id.btn_9
+        };
+        for (int i = 0; i < numberButtonIds.length; i++) {
             final String number = String.valueOf(i);
-            setupButton(buttonId, () -> appendNumber(number));
+            setupButton(numberButtonIds[i], () -> appendNumber(number));
         }
         // Action buttons
         setupButton(R.id.btn_valid, this::validateAnswer);
