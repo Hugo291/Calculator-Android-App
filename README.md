@@ -191,11 +191,13 @@ app/
   résultat de la partie (victoire ou défaite).
 - Utilise `GameEndDialogListener` pour notifier l'activité des actions de l'utilisateur (rejouer ou
   retourner à l'accueil).
+- Les boutons ont une animation de pression pour un retour visuel.
 
 **PauseDialog** (`app/src/main/java/.../Dialogs/PauseDialog.java`)
 
 - Dialogue simple affiché lorsque l'utilisateur met le jeu en pause.
 - Offre les options de reprendre la partie ou de la quitter pour retourner au menu principal.
+- Les boutons ont une animation de pression pour un retour visuel.
 
 ### Utilitaires
 

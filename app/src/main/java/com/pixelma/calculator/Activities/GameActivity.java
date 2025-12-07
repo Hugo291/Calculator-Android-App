@@ -86,6 +86,11 @@ public class GameActivity extends AppCompatActivity implements TimerActions, Pau
         btnPause = findViewById(R.id.btn_pause);
     }
 
+    /**
+     * Initialise les boutons de l'interface du jeu.
+     * Cette méthode attache les animations de pression et les écouteurs de clics
+     * à tous les boutons, y compris les chiffres, la validation, la suppression et la pause.
+     */
     private void setupButtons() {
         animationHelper = new ButtonAnimationHelper(this);
         int[] numberButtonIds = {
@@ -98,9 +103,17 @@ public class GameActivity extends AppCompatActivity implements TimerActions, Pau
         }
         setupButton(R.id.btn_valid, this::validateAnswer);
         setupButton(R.id.btn_erase, this::eraseLastDigit);
-        btnPause.setOnClickListener(v -> showPauseDialog());
+
+        // Applique l'animation de pression et l'action de clic au bouton de pause.
+        animationHelper.setupButtonAnimation(btnPause, this::showPauseDialog);
     }
 
+    /**
+     * Méthode d'aide pour configurer un bouton avec une animation et une action.
+     *
+     * @param buttonId L'ID de la ressource du bouton (MaterialCardView).
+     * @param action   L'action (Runnable) à exécuter lors du clic.
+     */
     private void setupButton(int buttonId, Runnable action) {
         MaterialCardView button = findViewById(buttonId);
         if (button != null) {

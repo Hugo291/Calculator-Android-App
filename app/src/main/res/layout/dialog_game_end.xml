@@ -13,6 +13,7 @@
         android:layout_margin="@dimen/game_button_shadow_offset">
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/dialog_shadow"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:cardBackgroundColor="@color/text_dark_blue"
@@ -26,9 +27,7 @@
             android:layout_marginEnd="@dimen/game_button_shadow_offset"
             android:layout_marginBottom="@dimen/game_button_shadow_offset"
             app:cardBackgroundColor="@color/button_green_mint"
-            app:cardCornerRadius="@dimen/card_corner_radius"
-            app:strokeColor="@color/text_dark_blue"
-            app:strokeWidth="2dp">
+            app:cardCornerRadius="@dimen/card_corner_radius">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -72,12 +71,15 @@
                     android:id="@+id/btn_next"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:layout_marginTop="16dp">
+                    android:layout_marginTop="16dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        app:cardBackgroundColor="@color/text_dark_blue"
+                        app:cardBackgroundColor="@color/button_yellow_strong_dark"
                         app:cardCornerRadius="@dimen/card_corner_radius" />
 
                     <com.google.android.material.card.MaterialCardView
@@ -86,9 +88,7 @@
                         android:layout_marginEnd="@dimen/game_button_shadow_offset"
                         android:layout_marginBottom="@dimen/game_button_shadow_offset"
                         app:cardBackgroundColor="@color/button_yellow_strong"
-                        app:cardCornerRadius="@dimen/card_corner_radius"
-                        app:strokeColor="@color/text_dark_blue"
-                        app:strokeWidth="2dp">
+                        app:cardCornerRadius="@dimen/card_corner_radius">
 
                         <TextView
                             android:id="@+id/btn_next_text"
@@ -107,12 +107,15 @@
                     android:id="@+id/btn_home"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:layout_marginTop="8dp">
+                    android:layout_marginTop="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        app:cardBackgroundColor="@color/text_dark_blue"
+                        app:cardBackgroundColor="@color/button_blue_light_dark"
                         app:cardCornerRadius="@dimen/card_corner_radius" />
 
                     <com.google.android.material.card.MaterialCardView
@@ -121,9 +124,7 @@
                         android:layout_marginEnd="@dimen/game_button_shadow_offset"
                         android:layout_marginBottom="@dimen/game_button_shadow_offset"
                         app:cardBackgroundColor="@color/button_blue_light"
-                        app:cardCornerRadius="@dimen/card_corner_radius"
-                        app:strokeColor="@color/text_dark_blue"
-                        app:strokeWidth="2dp">
+                        app:cardCornerRadius="@dimen/card_corner_radius">
 
                         <TextView
                             android:id="@+id/btn_home_text"

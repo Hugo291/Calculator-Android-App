@@ -27,7 +27,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                app:cardBackgroundColor="@color/text_dark_blue"
+                app:cardBackgroundColor="@color/button_yellow_strong_dark"
                 app:cardCornerRadius="@dimen/card_corner_radius" />
 
             <com.google.android.material.card.MaterialCardView
@@ -36,9 +36,7 @@
                 android:layout_marginEnd="@dimen/game_button_shadow_offset"
                 android:layout_marginBottom="@dimen/game_button_shadow_offset"
                 app:cardBackgroundColor="@color/button_yellow_strong"
-                app:cardCornerRadius="@dimen/card_corner_radius"
-                app:strokeColor="@color/text_dark_blue"
-                app:strokeWidth="2dp">
+                app:cardCornerRadius="@dimen/card_corner_radius">
 
                 <TextView
                     android:id="@+id/timer"
@@ -66,7 +64,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardBackgroundColor="@color/text_dark_blue"
+                app:cardBackgroundColor="@color/button_blue_light_dark"
                 app:cardCornerRadius="@dimen/card_corner_radius" />
 
             <com.google.android.material.card.MaterialCardView
@@ -75,9 +73,7 @@
                 android:layout_marginEnd="@dimen/game_button_shadow_offset"
                 android:layout_marginBottom="@dimen/game_button_shadow_offset"
                 app:cardBackgroundColor="@color/button_blue_light"
-                app:cardCornerRadius="@dimen/card_corner_radius"
-                app:strokeColor="@color/text_dark_blue"
-                app:strokeWidth="2dp">
+                app:cardCornerRadius="@dimen/card_corner_radius">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -106,7 +102,7 @@
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:cardBackgroundColor="@color/text_dark_blue"
+                    app:cardBackgroundColor="@color/button_green_mint_dark"
                     app:cardCornerRadius="@dimen/card_corner_radius" />
 
                 <com.google.android.material.card.MaterialCardView
@@ -115,9 +111,7 @@
                     android:layout_marginEnd="@dimen/game_button_shadow_offset"
                     android:layout_marginBottom="@dimen/game_button_shadow_offset"
                     app:cardBackgroundColor="@color/button_green_mint"
-                    app:cardCornerRadius="@dimen/card_corner_radius"
-                    app:strokeColor="@color/text_dark_blue"
-                    app:strokeWidth="2dp">
+                    app:cardCornerRadius="@dimen/card_corner_radius">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -146,7 +140,7 @@
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:cardBackgroundColor="@color/text_dark_blue"
+                    app:cardBackgroundColor="@color/button_red_coral_dark"
                     app:cardCornerRadius="@dimen/card_corner_radius" />
 
                 <com.google.android.material.card.MaterialCardView
@@ -155,9 +149,7 @@
                     android:layout_marginEnd="@dimen/game_button_shadow_offset"
                     android:layout_marginBottom="@dimen/game_button_shadow_offset"
                     app:cardBackgroundColor="@color/button_red_coral"
-                    app:cardCornerRadius="@dimen/card_corner_radius"
-                    app:strokeColor="@color/text_dark_blue"
-                    app:strokeWidth="2dp">
+                    app:cardCornerRadius="@dimen/card_corner_radius">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -302,7 +294,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardBackgroundColor="@color/text_dark_blue"
+                app:cardBackgroundColor="@color/button_blue_light_dark"
                 app:cardCornerRadius="@dimen/card_corner_radius" />
 
             <com.google.android.material.card.MaterialCardView
@@ -315,9 +307,7 @@
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/button_blue_light"
-                app:cardCornerRadius="@dimen/card_corner_radius"
-                app:strokeColor="@color/text_dark_blue"
-                app:strokeWidth="2dp">
+                app:cardCornerRadius="@dimen/card_corner_radius">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -341,7 +331,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardBackgroundColor="@color/text_dark_blue"
+                app:cardBackgroundColor="@color/button_blue_light_dark"
                 app:cardCornerRadius="@dimen/card_corner_radius" />
 
             <com.google.android.material.card.MaterialCardView
@@ -354,9 +344,7 @@
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/button_blue_light"
-                app:cardCornerRadius="@dimen/card_corner_radius"
-                app:strokeColor="@color/text_dark_blue"
-                app:strokeWidth="2dp">
+                app:cardCornerRadius="@dimen/card_corner_radius">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -380,7 +368,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardBackgroundColor="@color/text_dark_blue"
+                app:cardBackgroundColor="@color/button_blue_light_dark"
                 app:cardCornerRadius="@dimen/card_corner_radius" />
 
             <com.google.android.material.card.MaterialCardView
@@ -393,9 +381,7 @@
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/button_blue_light"
-                app:cardCornerRadius="@dimen/card_corner_radius"
-                app:strokeColor="@color/text_dark_blue"
-                app:strokeWidth="2dp">
+                app:cardCornerRadius="@dimen/card_corner_radius">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -419,7 +405,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardBackgroundColor="@color/text_dark_blue"
+                app:cardBackgroundColor="@color/button_blue_medium_dark"
                 app:cardCornerRadius="@dimen/card_corner_radius" />
 
             <com.google.android.material.card.MaterialCardView
@@ -432,9 +418,7 @@
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/button_blue_medium"
-                app:cardCornerRadius="@dimen/card_corner_radius"
-                app:strokeColor="@color/text_dark_blue"
-                app:strokeWidth="2dp">
+                app:cardCornerRadius="@dimen/card_corner_radius">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -458,7 +442,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardBackgroundColor="@color/text_dark_blue"
+                app:cardBackgroundColor="@color/button_blue_medium_dark"
                 app:cardCornerRadius="@dimen/card_corner_radius" />
 
             <com.google.android.material.card.MaterialCardView
@@ -471,9 +455,7 @@
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/button_blue_medium"
-                app:cardCornerRadius="@dimen/card_corner_radius"
-                app:strokeColor="@color/text_dark_blue"
-                app:strokeWidth="2dp">
+                app:cardCornerRadius="@dimen/card_corner_radius">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -497,7 +479,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardBackgroundColor="@color/text_dark_blue"
+                app:cardBackgroundColor="@color/button_blue_medium_dark"
                 app:cardCornerRadius="@dimen/card_corner_radius" />
 
             <com.google.android.material.card.MaterialCardView
@@ -510,9 +492,7 @@
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/button_blue_medium"
-                app:cardCornerRadius="@dimen/card_corner_radius"
-                app:strokeColor="@color/text_dark_blue"
-                app:strokeWidth="2dp">
+                app:cardCornerRadius="@dimen/card_corner_radius">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -536,7 +516,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardBackgroundColor="@color/text_dark_blue"
+                app:cardBackgroundColor="@color/button_purple_dark"
                 app:cardCornerRadius="@dimen/card_corner_radius" />
 
             <com.google.android.material.card.MaterialCardView
@@ -549,9 +529,7 @@
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/button_purple"
-                app:cardCornerRadius="@dimen/card_corner_radius"
-                app:strokeColor="@color/text_dark_blue"
-                app:strokeWidth="2dp">
+                app:cardCornerRadius="@dimen/card_corner_radius">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -575,7 +553,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardBackgroundColor="@color/text_dark_blue"
+                app:cardBackgroundColor="@color/button_purple_dark"
                 app:cardCornerRadius="@dimen/card_corner_radius" />
 
             <com.google.android.material.card.MaterialCardView
@@ -588,9 +566,7 @@
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/button_purple"
-                app:cardCornerRadius="@dimen/card_corner_radius"
-                app:strokeColor="@color/text_dark_blue"
-                app:strokeWidth="2dp">
+                app:cardCornerRadius="@dimen/card_corner_radius">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -614,7 +590,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardBackgroundColor="@color/text_dark_blue"
+                app:cardBackgroundColor="@color/button_purple_dark"
                 app:cardCornerRadius="@dimen/card_corner_radius" />
 
             <com.google.android.material.card.MaterialCardView
@@ -627,9 +603,7 @@
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/button_purple"
-                app:cardCornerRadius="@dimen/card_corner_radius"
-                app:strokeColor="@color/text_dark_blue"
-                app:strokeWidth="2dp">
+                app:cardCornerRadius="@dimen/card_corner_radius">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -653,7 +627,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardBackgroundColor="@color/text_dark_blue"
+                app:cardBackgroundColor="@color/button_red_coral_dark"
                 app:cardCornerRadius="@dimen/card_corner_radius" />
 
             <com.google.android.material.card.MaterialCardView
@@ -666,9 +640,7 @@
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/button_red_coral"
-                app:cardCornerRadius="@dimen/card_corner_radius"
-                app:strokeColor="@color/text_dark_blue"
-                app:strokeWidth="2dp">
+                app:cardCornerRadius="@dimen/card_corner_radius">
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:layout_width="match_parent"
@@ -691,7 +663,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardBackgroundColor="@color/text_dark_blue"
+                app:cardBackgroundColor="@color/button_yellow_light_dark"
                 app:cardCornerRadius="@dimen/card_corner_radius" />
 
             <com.google.android.material.card.MaterialCardView
@@ -704,9 +676,7 @@
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/button_yellow_light"
-                app:cardCornerRadius="@dimen/card_corner_radius"
-                app:strokeColor="@color/text_dark_blue"
-                app:strokeWidth="2dp">
+                app:cardCornerRadius="@dimen/card_corner_radius">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -730,7 +700,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardBackgroundColor="@color/text_dark_blue"
+                app:cardBackgroundColor="@color/button_green_mint_dark"
                 app:cardCornerRadius="@dimen/card_corner_radius" />
 
             <com.google.android.material.card.MaterialCardView
@@ -743,9 +713,7 @@
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/button_green_mint"
-                app:cardCornerRadius="@dimen/card_corner_radius"
-                app:strokeColor="@color/text_dark_blue"
-                app:strokeWidth="2dp">
+                app:cardCornerRadius="@dimen/card_corner_radius">
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:layout_width="match_parent"

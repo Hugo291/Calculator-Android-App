@@ -54,7 +54,7 @@ public class MenuActivity extends AppCompatActivity {
 
         for (int i = 0; i < buttonIds.length; i++) {
             MaterialCardView button = findViewById(buttonIds[i]);
-            animateButtonAppearance(button, i * 100, 1000);
+            animateButtonAppearance(button, i * 100, 100);
         }
 
         // Starts a game with the addition operator

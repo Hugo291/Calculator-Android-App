@@ -31,6 +31,15 @@
     <color name="text_dark_blue">#2a2c36</color>
     <color name="button_yellow_strong">#f0c13c</color>
 
+    <color name="button_yellow_strong_dark">#c89e2e</color>
+    <color name="button_red_coral_dark">#c65351</color>
+    <color name="button_orange_light_dark">#d17a68</color>
+    <color name="button_blue_light_dark">#69b2d0</color>
+    <color name="button_purple_dark">#b27fc0</color>
+    <color name="button_green_mint_dark">#49af8f</color>
+    <color name="button_blue_medium_dark">#4a84ab</color>
+    <color name="button_yellow_light_dark">#e0c478</color>
+
     <color name="game_button_text_color">@color/white</color>
     <color name="main_background">#F3F3F3</color>
 

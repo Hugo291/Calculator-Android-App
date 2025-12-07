@@ -3,6 +3,7 @@ package com.pixelma.calculator.Dialogs;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -39,6 +40,9 @@ public class PauseDialog extends AlertDialog {
         FrameLayout btnResume = dialogView.findViewById(R.id.btn_resume);
         FrameLayout btnQuit = dialogView.findViewById(R.id.btn_quit);
 
+        setButtonAnimation(btnResume);
+        setButtonAnimation(btnQuit);
+
         btnResume.setOnClickListener(v -> {
             if (listener != null) {
                 listener.onResumeClicked();
@@ -54,5 +58,29 @@ public class PauseDialog extends AlertDialog {
         });
 
         setCancelable(false);
+    }
+
+    /**
+     * Applique une animation de pression à un bouton.
+     * Le bouton est mis à l'échelle lorsqu'il est pressé et revient à sa taille normale lorsqu'il est relâché.
+     *
+     * @param button Le bouton (FrameLayout) auquel appliquer l'animation.
+     */
+    private void setButtonAnimation(FrameLayout button) {
+        button.setOnTouchListener((v, event) -> {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    // Le bouton est pressé, on le réduit.
+                    v.animate().scaleX(0.95f).scaleY(0.95f).setDuration(100).start();
+                    break;
+                case MotionEvent.ACTION_UP:
+                case MotionEvent.ACTION_CANCEL:
+                    // Le bouton est relâché ou le contact est annulé, on le remet à sa taille normale.
+                    v.animate().scaleX(1f).scaleY(1f).setDuration(100).start();
+                    break;
+            }
+            // Retourne false pour ne pas consommer l'événement et permettre au OnClickListener de fonctionner.
+            return false;
+        });
     }
 }
