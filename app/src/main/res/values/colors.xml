@@ -37,8 +37,54 @@
     <color name="dialog_background">#FEFBF0</color>
     <color name="dialog_green">#76C870</color>
     <color name="dialog_dark_text">#3A4043</color>
-    <color name="dialog_dark_gray_button">#494D53</color>
+    <color name="dialog_dark_gray_button">#494D53
+    </color> <!-- Was #FD4AB0F3, but that's a semi-transparent value. Using colorPrimaryDark as the solid base -->
+    <color name="colorPrimaryVariant">#007ACC</color> <!-- Example: A slightly darker shade -->
+    <color name="colorOnPrimary">#FFFFFF</color> <!-- Text/icons on top of your primary color -->
 
+    <!-- =============================================================== -->
+    <!-- SECONDARY BRAND COLORS                                          -->
+    <!-- Your app's accent colors.                                       -->
+    <!-- =============================================================== -->
+    <color name="colorSecondary">#03DAC5</color> <!-- Was teal_200 -->
+    <color name="colorSecondaryVariant">#018786</color> <!-- Was teal_700 -->
+    <color name="colorOnSecondary">#000000
+    </color> <!-- Text/icons on top of your secondary color -->
+
+    <!-- =============================================================== -->
+    <!-- UI SURFACE & BACKGROUND COLORS                                  -->
+    <!-- Used for component surfaces, backgrounds, etc.                  -->
+    <!-- =============================================================== -->
+    <color name="colorBackground">#F3F3F3</color> <!-- Was main_background -->
+    <color name="colorOnBackground">#2a2c36</color> <!-- Was text_dark_blue -->
+    <color name="colorSurface">#FEFBF0</color> <!-- Was dialog_background -->
+    <color name="colorOnSurface">#3A4043</color> <!-- Was dialog_dark_text -->
+
+    <!-- =============================================================== -->
+    <!-- UTILITY & STATE COLORS                                          -->
+    <!-- Used for warnings, errors, success states, etc.                 -->
+    <!-- =============================================================== -->
+    <color name="colorError">#FF5252</color> <!-- Was colorErase -->
+    <color name="colorOnError">#FFFFFF</color>
+    <color name="colorSuccess">#00C853</color> <!-- Was colorValid -->
+    <color name="colorOnSuccess">#FFFFFF</color>
+    <color name="colorOnWarning">#000000</color>
+    <color name="colorOnInfo">#000000</color>
+
+    <!-- =============================================================== -->
+    <!-- LEGACY OR SPECIFIC COMPONENT COLORS (To be refactored if possible) -->
+    <!-- Keep these only if they don't fit the main system.              -->
+    <!-- =============================================================== -->
+    <color name="button_number_background">#FD4AB0F3</color>
+    <color name="calculation_text">#6D7577</color>
+    <color name="dialog_button_gray">#494D53</color>
+
+
+    <!-- =============================================================== -->
+    <!-- PRIMARY BRAND COLORS                                            -->
+    <!-- Your app's main branding colors.                                -->
+    <!-- =============================================================== -->
+    <!-- <color name="colorPrimary">#0091EA</color> -->
 </resources>
 
 

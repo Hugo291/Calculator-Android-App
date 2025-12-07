@@ -100,12 +100,8 @@ public class Timer {
     }
 
     // Getters
-    public int getTimeSecond() {
+    public int getRemainingTime() {
         return currentSeconds;
-    }
-
-    public String getInitValue() {
-        return timeFormat(startSecond);
     }
 
     public boolean isRunning() {

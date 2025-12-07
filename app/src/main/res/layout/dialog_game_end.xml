@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
     android:background="@android:color/transparent">
@@ -20,11 +20,12 @@
             app:cardElevation="0dp"/>
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/game_end_card"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginEnd="@dimen/game_button_shadow_offset"
             android:layout_marginBottom="@dimen/game_button_shadow_offset"
-            app:cardBackgroundColor="@color/white"
+            app:cardBackgroundColor="@color/button_green_mint"
             app:cardCornerRadius="@dimen/card_corner_radius"
             app:strokeColor="@color/text_dark_blue"
             app:strokeWidth="2dp">
@@ -36,37 +37,39 @@
                 android:padding="16dp">
 
                 <TextView
+                    android:id="@+id/game_end_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="@font/fredoka_semibold"
-                    android:text="GAME OVER"
-                    android:textColor="@color/text_dark_blue"
+                    android:text="VICTORY"
+                    android:textColor="@color/white"
                     android:textSize="32sp" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/fredoka_semibold"
-                    android:text="Ton score final"
-                    android:textColor="@color/text_dark_blue"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/final_score"
+                    android:id="@+id/game_end_score"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/fredoka_semibold"
-                    android:text="15"
-                    android:textColor="@color/button_yellow_strong"
+                    android:text="38"
+                    android:textColor="@color/white"
                     android:textSize="80sp" />
 
+                <TextView
+                    android:id="@+id/game_end_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/fredoka_semibold"
+                    android:text="00:00:00"
+                    android:textColor="@color/white"
+                    android:textSize="32sp" />
+
                 <FrameLayout
-                    android:id="@+id/btn_restart"
+                    android:id="@+id/btn_next"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginTop="16dp">
@@ -82,17 +85,18 @@
                         android:layout_height="match_parent"
                         android:layout_marginEnd="@dimen/game_button_shadow_offset"
                         android:layout_marginBottom="@dimen/game_button_shadow_offset"
-                        app:cardBackgroundColor="@color/button_green_mint"
+                        app:cardBackgroundColor="@color/button_yellow_strong"
                         app:cardCornerRadius="@dimen/card_corner_radius"
                         app:strokeColor="@color/text_dark_blue"
                         app:strokeWidth="2dp">
 
                         <TextView
+                            android:id="@+id/btn_next_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:fontFamily="@font/fredoka_semibold"
-                            android:text="REJOUER"
+                            android:text="NEXT"
                             android:textColor="@color/white"
                             android:textSize="24sp" />
 
@@ -116,17 +120,18 @@
                         android:layout_height="match_parent"
                         android:layout_marginEnd="@dimen/game_button_shadow_offset"
                         android:layout_marginBottom="@dimen/game_button_shadow_offset"
-                        app:cardBackgroundColor="@color/button_red_coral"
+                        app:cardBackgroundColor="@color/button_blue_light"
                         app:cardCornerRadius="@dimen/card_corner_radius"
                         app:strokeColor="@color/text_dark_blue"
                         app:strokeWidth="2dp">
 
                         <TextView
+                            android:id="@+id/btn_home_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:fontFamily="@font/fredoka_semibold"
-                            android:text="ACCUEIL"
+                            android:text="HOME"
                             android:textColor="@color/white"
                             android:textSize="24sp" />
 

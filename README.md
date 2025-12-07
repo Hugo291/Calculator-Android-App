@@ -51,9 +51,9 @@
 
 ### Système de points
 
-- ✅ **Bonne réponse** : +1 point, chronomètre rechargé, nouvelle équation
-- ❌ **Mauvaise réponse** : L'équation reste affichée, vous pouvez réessayer
-- ⏰ **Temps écoulé** : Fin de la partie, votre score est affiché
+- ✅ **Bonne réponse** : +100 points, le temps restant est ajouté au temps total
+- ❌ **Mauvaise réponse** : -20 points
+- ⏰ **Temps écoulé ou score à 0** : Fin de la partie, votre score et votre temps total sont affichés
 
 ### Niveaux de difficulté
 
@@ -104,8 +104,9 @@ L'application suit une architecture **MVC simplifiée** :
 ```
 app/
 ├── Activities/          # Contrôleurs (GameActivity, MenuActivity)
+├── Dialogs/             # Dialogues (GameEndDialog, PauseDialog)
 ├── Models/             # Logique métier (Calculation, Timer)
-├── Interfaces/         # Contrats (TimerActions)
+├── Interfaces/         # Contrats (TimerActions, GameEndDialogListener, PauseDialogListener)
 ├── Utils/              # Classes utilitaires (GameConfig, ButtonAnimationHelper)
 └── res/                # Ressources (layouts, drawables, values)
 ```
@@ -179,6 +180,22 @@ app/
 - Compte à rebours de 10 secondes
 - Gestion de pause/reprise
 - Callbacks pour mise à jour UI
+
+### Dialogues
+
+**GameEndDialog** (`app/src/main/java/.../Dialogs/GameEndDialog.java`)
+
+- Dialogue de fin de partie qui gère à la fois la victoire et la défaite.
+- Affiche le score final et le temps accumulé.
+- Le contenu et l'apparence du dialogue (titre, couleurs, texte des boutons) changent en fonction du
+  résultat de la partie (victoire ou défaite).
+- Utilise `GameEndDialogListener` pour notifier l'activité des actions de l'utilisateur (rejouer ou
+  retourner à l'accueil).
+
+**PauseDialog** (`app/src/main/java/.../Dialogs/PauseDialog.java`)
+
+- Dialogue simple affiché lorsque l'utilisateur met le jeu en pause.
+- Offre les options de reprendre la partie ou de la quitter pour retourner au menu principal.
 
 ### Utilitaires
 

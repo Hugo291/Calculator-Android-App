@@ -47,6 +47,16 @@ public class MenuActivity extends AppCompatActivity {
 
         //TODO add google sign
 
+        int[] buttonIds = {
+                R.id.btn_plus, R.id.btn_divide, R.id.btn_minus, R.id.btn_multi,
+                R.id.btn_random, R.id.btn_challenge, R.id.btn_timer, R.id.btn_progress
+        };
+
+        for (int i = 0; i < buttonIds.length; i++) {
+            MaterialCardView button = findViewById(buttonIds[i]);
+            animateButtonAppearance(button, i * 100, 1000);
+        }
+
         // Starts a game with the addition operator
         setButtonTouchListener(R.id.btn_plus, () -> startGame(GameConfig.Operators.PLUS));
         // Starts a game with the division operator
@@ -87,6 +97,17 @@ public class MenuActivity extends AppCompatActivity {
             view.setLayoutParams(params);
         });
         animator.start();
+    }
+
+    private void animateButtonAppearance(View button, long startDelay, long duration) {
+        button.setScaleX(0.9f);
+        button.setScaleY(0.9f);
+        button.animate()
+                .scaleX(1.0f)
+                .scaleY(1.0f)
+                .setDuration(duration)
+                .setStartDelay(startDelay)
+                .start();
     }
 
     private void setButtonTouchListener(int buttonId, Runnable action) {

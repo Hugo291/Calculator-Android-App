@@ -9,10 +9,19 @@ import android.widget.FrameLayout;
 import com.pixelma.calculator.Interfaces.PauseDialogListener;
 import com.pixelma.calculator.R;
 
+/**
+ * Dialogue affiché lorsque le jeu est en pause.
+ */
 public class PauseDialog extends AlertDialog {
 
     private final PauseDialogListener listener;
 
+    /**
+     * Constructeur pour le dialogue de pause.
+     *
+     * @param context  Le contexte de l'application.
+     * @param listener L'écouteur pour les événements du dialogue.
+     */
     public PauseDialog(Context context, PauseDialogListener listener) {
         super(context);
         this.listener = listener;
