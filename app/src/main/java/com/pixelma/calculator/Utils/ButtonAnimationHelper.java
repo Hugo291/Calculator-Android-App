@@ -119,18 +119,18 @@ public class ButtonAnimationHelper {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             switch (motionEvent.getAction()) {
                 case MotionEvent.ACTION_DOWN:
-                    view.animate().scaleX(0.9f).scaleY(0.9f).setDuration(pressDuration).start();
+//                    view.animate().scaleX(0.9f).scaleY(0.9f).setDuration(pressDuration).start();
                     return true;
 
                 case MotionEvent.ACTION_UP:
-                    view.animate().scaleX(1f).scaleY(1f).setDuration(releaseDuration).start();
+//                    view.animate().scaleX(1f).scaleY(1f).setDuration(releaseDuration).start();
                     if (action != null) {
                         action.run();
                     }
                     return true;
 
                 case MotionEvent.ACTION_CANCEL:
-                    view.animate().scaleX(1f).scaleY(1f).setDuration(releaseDuration).start();
+//                    view.animate().scaleX(1f).scaleY(1f).setDuration(releaseDuration).start();
                     return true;
             }
             return false;

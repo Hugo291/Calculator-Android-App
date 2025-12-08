@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "514984169617",
+    "firebase_url": "https://calculator-e4d3e.firebaseio.com",
+    "project_id": "calculator-e4d3e",
+    "storage_bucket": "calculator-e4d3e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:514984169617:android:18584b26d50f73b6e9ef30",
+        "android_client_info": {
+          "package_name": "com.pixelma.caculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "514984169617-ih148mqqiih9705o4j9pdkh0ji81jv5h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBG0DjtfuccwPLBAv-Ecnph3daAzAmmLRg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "514984169617-ih148mqqiih9705o4j9pdkh0ji81jv5h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

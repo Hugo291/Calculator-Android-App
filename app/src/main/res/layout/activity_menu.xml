@@ -409,4 +409,18 @@
 
     </LinearLayout>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_google_sign_in"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40sp"
+        android:text="@string/sign_in_with_google"
+        app:icon="@drawable/ic_google_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bottom_nav" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

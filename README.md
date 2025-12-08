@@ -47,7 +47,7 @@
 - **Aléatoire (`btn_random`)**: Lance un jeu avec un opérateur aléatoire.
 - **Défi (`btn_challenge`)**: ? (Fonctionnalité non implémentée)
 - **Minuteur (`btn_timer`)**: ? (Fonctionnalité non implémentée)
-- **Progrès (`btn_progress`)**: ? (Fonctionnalité non implémentée)
+- **Déconnexion (`btn_progress`)**: Déconnecte l'utilisateur de son compte Google.
 
 ### Système de points
 
@@ -92,8 +92,12 @@ dependencies {
     // Material Design Components
     implementation 'com.google.android.material:material:1.10.0'
     
-    // Google Mobile Ads
-    implementation 'com.google.android.gms:play-services-ads'
+    // Google Sign-In
+    implementation 'com.google.android.gms:play-services-auth:21.2.0'
+    implementation 'com.google.android.libraries.identity.googleid:googleid:1.1.1'
+
+    // Firebase
+    implementation 'com.google.firebase:firebase-auth'
 }
 ```
 
@@ -247,18 +251,19 @@ app/
 
 ## 🔧 Configuration
 
-### Google Mobile Ads
+### Google Sign-In Setup
 
-L'application est configurée pour intégrer des publicités :
+Pour que la connexion Google fonctionne, vous devez fournir un "Web client ID".
 
-```xml
-<!-- AndroidManifest.xml -->
-<meta-data
-    android:name="com.google.android.gms.ads.APPLICATION_ID"
-    android:value="ca-app-pub-9096547068264021~8682164016"/>
-```
-
-⚠️ Remplacez cette valeur par votre propre ID AdMob en production.
+1. Allez sur la [Google Cloud Console](https://console.cloud.google.com/).
+2. Sélectionnez le projet correspondant à votre application Firebase.
+3. Allez dans le menu de navigation (icône hamburger) -> "APIs & Services" -> "Credentials".
+4. Cliquez sur "+ CREATE CREDENTIALS" en haut de la page et sélectionnez "OAuth client ID".
+5. Choisissez "Web application" comme type d'application.
+6. Donnez-lui un nom (par exemple, "Web client pour Calculator App").
+7. Cliquez sur "Create". Une fenêtre contextuelle apparaîtra avec votre "client ID".
+8. Ouvrez le fichier `app/src/main/res/values/strings.xml` et collez l'ID client dans la ressource
+   de chaîne `default_web_client_id`.
 
 ### Orientation
 
